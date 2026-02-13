@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thalles Rayanderson - Arquitetura de Luxo. Projetos residenciais, comerciais e interiores com sofisticação e tecnologia.">
+    <title>Thalles Rayanderson | Arquitetura & Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                TH<span>Δ</span>LLES RAYANDERSON
+            </div>
+            <ul class="nav-links">
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#contato" class="btn-contato">Solicitar Orçamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>
+                    <span>Arquitetura Exclusiva</span>
+                    TRANSFORMANDO VISÕES EM <br> ESTRUTURAS DE LUXO
+                </h1>
+                <p>Design autoral para residências de alto padrão e espaços corporativos imponentes.</p>
+                <a href="#portfolio" class="cta-scroll">Conhecer Portfólio</a>
+            </div>
+        </section>
+
+        <section id="portfolio" class="container">
+            <h2 class="section-title">Projetos Selecionados</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="residencial">Residencial</button>
+                <button class="filter-btn" data-filter="comercial">Comercial</button>
+                <button class="filter-btn" data-filter="interiores">Interiores</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="project-card" data-category="residencial">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Mansão Alphaville">
+                    <div class="overlay">
+                        <h3>Mansão Alphaville</h3>
+                        <p>São Paulo | 2024</p>
+                        <button onclick="openModal('res1')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="residencial">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Casa do Lago">
+                    <div class="overlay">
+                        <h3>Casa do Lago</h3>
+                        <p>Brasília | 2023</p>
+                        <button onclick="openModal('res2')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="residencial">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Villa Contemporânea">
+                    <div class="overlay">
+                        <h3>Villa Contemporânea</h3>
+                        <p>Rio de Janeiro | 2024</p>
+                        <button onclick="openModal('res3')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="comercial">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Sede Tech">
+                    <div class="overlay">
+                        <h3>Sede Tech Global</h3>
+                        <p>Curitiba | 2023</p>
+                        <button onclick="openModal('com1')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="comercial">
+                    <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?auto=format&fit=crop&w=800&q=80" alt="Consultório Prime">
+                    <div class="overlay">
+                        <h3>Consultório Prime</h3>
+                        <p>Fortaleza | 2024</p>
+                        <button onclick="openModal('com2')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="comercial">
+                    <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=800&q=80" alt="Lounge Corporativo">
+                    <div class="overlay">
+                        <h3>Lounge Corporativo</h3>
+                        <p>São Paulo | 2022</p>
+                        <button onclick="openModal('com3')">Ver Detalhes</button>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="interiores">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Penthouse Minimalista">
+                    <div class="overlay">
+                        <h3>Penthouse Minimalista</h3>
+                        <p>Belo Horizonte | 2024</p>
+                        <button onclick="openModal('int1')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="interiores">
+                    <img src="https://images.unsplash.com/photo-1616489953149-864c2957d078?auto=format&fit=crop&w=800&q=80" alt="Suíte Master">
+                    <div class="overlay">
+                        <h3>Suíte Master</h3>
+                        <p>Gramado | 2023</p>
+                        <button onclick="openModal('int2')">Ver Detalhes</button>
+                    </div>
+                </div>
+                <div class="project-card" data-category="interiores">
+                    <img src="https://images.unsplash.com/photo-1631675093993-48aa73d3e65a?auto=format&fit=crop&w=800&q=80" alt="Cozinha Gourmet">
+                    <div class="overlay">
+                        <h3>Cozinha Gourmet</h3>
+                        <p>Salvador | 2024</p>
+                        <button onclick="openModal('int3')">Ver Detalhes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="processo" class="dark-bg">
+            <div class="container">
+                <h2 class="section-title">O Caminho do Projeto</h2>
+                <div class="timeline">
+                    <div class="step"><span>01</span> <h4>Briefing</h4></div>
+                    <div class="step"><span>02</span> <h4>Estudo</h4></div>
+                    <div class="step"><span>03</span> <h4>Executivo</h4></div>
+                    <div class="step"><span>04</span> <h4>Acompanhamento</h4></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Thalles Rayanderson</div>
+                <p>&copy; 2026 Reservado a Jeferson Borges</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

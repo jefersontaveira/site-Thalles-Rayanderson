@@ -1,0 +1,310 @@
+:root {
+    --bg-dark: #121212;
+    --bg-accent: #1a1a1a;
+    --primary: #c5a059; /* Tom de Ouro Envelhecido */
+    --text-light: #f4f4f4;
+    --text-muted: #a0a0a0;
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, .logo {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    padding: 30px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Cinzel', serif; /* Fonte clássica e imponente */
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+
+
+.logo span { 
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+
+
+/*-------HERO SECTION---------------------------------------------------------------------------------------------------*/
+#hero {
+    height: 100vh;
+    /* Imagem de um interior moderno e luxuoso */
+    background: 
+        linear-gradient(to bottom, rgba(18, 18, 18, 0.3) 0%, rgba(18, 18, 18, 1) 100%),
+        url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Efeito de profundidade ao rolar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeInHero 1.5s ease-out;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    color: var(--text-light);
+}
+
+.hero-content h1 span {
+    display: block;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Botão de Chamada (CTA) */
+.cta-scroll {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--primary);
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-scroll:hover {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+}
+
+
+
+
+/*------- PORTFÓLIO SECTION --------------------------------------------------------------------- */
+/* Container de Filtros */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    padding: 10px 0;
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Efeito da linha passando por baixo (Underline animado) */
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--primary);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.filter-btn:hover {
+    color: var(--text-light);
+}
+
+/* Estado Ativo */
+.filter-btn.active {
+    color: var(--primary);
+}
+
+.filter-btn.active::after {
+    width: 30px; /* Largura da linha quando selecionado */
+}
+
+/* Ajuste no Título da Seção para combinar */
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+
+/* Grid Responsivo (3 colunas por enquanto) */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 5 / 3; /* Mantém uma proporção vertical elegante */
+    background-color: var(--bg-accent);
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%); /* Toque artístico */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0; /* Ocupa todo o card */
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.9) 0%, rgba(18, 18, 18, 0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0%);
+}
+
+.project-card:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    transform: translateY(20px);
+    transition: transform 0.5s ease 0.1s;
+}
+
+.overlay p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    transform: translateY(20px);
+    transition: transform 0.5s ease 0.2s;
+}
+
+.project-card:hover h3, 
+.project-card:hover p {
+    transform: translateY(0);
+}
+
+/* Botão de Ver Detalhes dentro do Card */
+.overlay button {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: var(--transition);
+}
+
+.overlay button:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
