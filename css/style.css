@@ -83,6 +83,22 @@ nav {
 
 .nav-links a:hover { color: var(--primary); }
 
+.btn-contato {
+
+    padding: 10px 10px;
+    border: 1px solid var(--primary);
+    color: var(--text-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+
 
 
 /*-------HERO SECTION---------------------------------------------------------------------------------------------------*/
@@ -439,7 +455,7 @@ nav {
 
 /* ------------ DEPOIMENTOS SEÇÃO ------------------------------------------------------------------*/
 #depoimentos {
-    padding: 120px 0;
+    padding-bottom: 100px;
     perspective: 1000px; /* Crucial para o efeito 3D */
     overflow: hidden;
 }
@@ -565,3 +581,194 @@ nav {
 }
 
 
+
+/* ----------- CTA SECTION -----------------------------------------------------------------------------------*/
+
+#cta {
+    position: relative;
+    padding: 150px 0;
+    background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed; /* Efeito Parallax */
+    text-align: center;
+    overflow: hidden;
+}
+
+.cta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.7));
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content span {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.cta-content h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.cta-content h2 strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.cta-content p {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Botões Customizados para o CTA */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 35px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    transform: translateY(-5px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+    transform: translateY(-5px);
+}
+
+
+
+
+/* ----------- CONTATO SECTION -----------------------------------------------------------------------------------*/
+
+#contato {
+    padding: 100px 20px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.contact-info p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-light);
+    text-decoration: none;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.social-item i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.social-item:hover {
+    color: var(--primary);
+    transform: translateX(10px);
+}
+
+/* Formulário Estilizado */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%;
+    background: var(--bg-accent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--primary);
+}
+
+
+
+/* ----------- FOOTER -----------------------------------------------------------------------------------*/
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px 0;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.credits p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
