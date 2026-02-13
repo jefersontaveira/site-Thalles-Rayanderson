@@ -93,3 +93,70 @@ document.getElementById('loadMoreBtn').addEventListener('click', function() {
 
 // Inicializar a tela
 document.addEventListener('DOMContentLoaded', updatePortfolioVisibility);
+
+
+
+// ---------------- DEPOIMENTOS -------------------------------------------------------------------
+const carousel = document.querySelector('.testimonial-carousel');
+const cards = document.querySelectorAll('.testimonial-card');
+let currentIndex = 0;
+
+// Variáveis para o Touch (Mobile)
+let touchStartX = 0;
+let touchEndX = 0;
+
+function updateCarousel() {
+    cards.forEach((card, index) => {
+        card.classList.remove('active', 'prev', 'next');
+        card.onclick = null; // Limpa eventos antigos para evitar conflitos
+
+        if (index === currentIndex) {
+            card.classList.add('active');
+        } else if (index === (currentIndex - 1 + cards.length) % cards.length) {
+            card.classList.add('prev');
+            // REGRA 1: Clicar no card da esquerda volta
+            card.onclick = () => movePrev();
+        } else if (index === (currentIndex + 1) % cards.length) {
+            card.classList.add('next');
+            // REGRA 1: Clicar no card da direita avança
+            card.onclick = () => moveNext();
+        }
+    });
+}
+
+function moveNext() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCarousel();
+}
+
+function movePrev() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCarousel();
+}
+
+// Botões de Navegação
+document.getElementById('nextBtn').addEventListener('click', moveNext);
+document.getElementById('prevBtn').addEventListener('click', movePrev);
+
+// --- SUPORTE PARA TOUCH (Deslizar o dedo) ---
+carousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+carousel.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+}, {passive: true});
+
+function handleGesture() {
+    const swipedThreshold = 50; // Sensibilidade do deslize
+    if (touchEndX < touchStartX - swipedThreshold) {
+        moveNext(); // Deslizou para a esquerda -> Próximo
+    }
+    if (touchEndX > touchStartX + swipedThreshold) {
+        movePrev(); // Deslizou para a direita -> Anterior
+    }
+}
+
+// Inicializa
+updateCarousel();

@@ -339,3 +339,229 @@ nav {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+
+
+
+/*-------PROCESSOS SECTION---------------------------------------------------------------------------------------------------*/
+
+#processo {
+    padding: 100px 0;
+    background-color: var(--bg-accent);
+    position: relative;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 80px;
+}
+
+/* A linha que conecta os pontos */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 45px; /* Alinhado ao centro dos números */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+    opacity: 0.3;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+    transition: var(--transition);
+}
+
+/* O Número (Destaque Tecnológico) */
+.step span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 30px;
+    background-color: var(--bg-dark);
+    border: 1px solid var(--primary);
+    border-radius: 5%; 
+    color: var(--primary);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.1);
+}
+
+/* Efeito de brilho no número ao passar o mouse */
+.step:hover span {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+    transform: translateY(-10px);
+}
+
+.step h4 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Detalhe Decorativo: Ponto de pulsação */
+.step::after {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.step:hover::before {
+    opacity: 1;
+}
+
+
+
+/* ------------ DEPOIMENTOS SEÇÃO ------------------------------------------------------------------*/
+#depoimentos {
+    padding: 120px 0;
+    perspective: 1000px; /* Crucial para o efeito 3D */
+    overflow: hidden;
+}
+
+.carousel-container {
+    margin-top: 100px;
+    position: relative;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.testimonial-card {
+    position: absolute;
+    width: 350px;
+    background: var(--bg-accent);
+    padding: 40px;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Estado Ativo (Frente) */
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    z-index: 5;
+    pointer-events: auto;
+    border-color: var(--primary);
+    margin-bottom: 100px;
+}
+
+.testimonial-card.prev, 
+.testimonial-card.next {
+    cursor: pointer;
+    pointer-events: auto; /* Garante que o clique funcione nos cards laterais */
+}
+
+.testimonial-card.prev:hover, 
+.testimonial-card.next:hover {
+    opacity: 0.6; /* Feedback visual ao passar o mouse nos cards de trás */
+}
+
+
+/* Cards Laterais (Efeito de rotação por trás) */
+.testimonial-card.prev {
+    opacity: 0.4;
+    transform: translateX(-60%) translateZ(-200px) rotateY(25deg);
+    z-index: 3;
+}
+
+.testimonial-card.next {
+    opacity: 0.4;
+    transform: translateX(60%) translateZ(-200px) rotateY(-25deg);
+    z-index: 3;
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary);
+    padding: 3px;
+    object-fit: cover;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.testimonial-card h4 {
+    font-family: 'Cinzel', serif;
+    color: var(--text-light);
+    letter-spacing: 2px;
+}
+
+.testimonial-card span {
+    font-size: 0.7rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Navegação */
+.carousel-nav {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.carousel-nav button {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-nav button:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+}
+
+
