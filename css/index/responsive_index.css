@@ -1,0 +1,441 @@
+/* Media Query para Tablets */
+@media screen and (max-width: 992px) {
+    /* --- HEADER --------------*/
+    .logo{
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%; /* Ocupa 70% da largura no mobile */
+        height: 100vh;
+        background: rgba(18, 18, 18, 0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%); /* Escondido à direita */
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+        gap: 50px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    /* Estilo do botão Hamburguer */
+    .menu-mobile {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-mobile div {
+        width: 25px;
+        height: 2px;
+        background: var(--text-light);
+        margin: 6px;
+        transition: 0.3s;
+    }
+
+    /* Animação do X quando aberto */
+    .menu-mobile.active .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-mobile.active .line2 {
+        opacity: 0;
+    }
+    .menu-mobile.active .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* ---- HERO -----------------------------------*/
+    .hero-content h1 {
+        font-size: 2.8rem; /* Reduzindo para não ocupar a tela toda */
+        letter-spacing: 2px;
+    }
+
+    /* --- PORTFÓLIO -------------------------------*/
+    .section-title {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+        margin-top: 80px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para tablets */
+        gap: 15px;
+    }
+    
+    .filters {
+        gap: 20px;
+        flex-wrap: wrap; /* Permite que os botões quebrem linha se necessário */
+    }
+
+    /* --- CTA -------------------------------*/
+    #cta {
+        padding: 100px 20px;
+        background-attachment: scroll; /* Melhora performance mobile */
+    }
+
+    .cta-content h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    /* --- CONTATO -------------------------------*/
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .section-title{
+        text-align: center;
+    }
+    .contact-info {
+        text-align: center;
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .social-item {
+        justify-content: center;
+        width: 100%;
+        max-width: 350px;
+    }
+      
+
+}
+
+@media screen and (min-width: 993px) {
+    .menu-mobile {
+        display: none;
+    }
+}
+
+
+
+
+
+/* --- Media Query para Celulares (até 768px) --------------------------------- */
+@media screen and (max-width: 768px) {
+    #hero {
+        /* Desativa o fixed para evitar "pulos" no scroll mobile */
+        background-attachment: scroll; 
+        padding: 0 15px;
+    }
+
+    .hero-content span {
+        font-size: 0.9rem;
+        letter-spacing: 5px; /* Reduzindo o espaçamento para caber em uma linha */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Tamanho ideal para leitura em smartphone */
+        line-height: 1.3;
+        margin-bottom: 20px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .cta-scroll {
+        padding: 12px 30px;
+        font-size: 0.75rem;
+        width: 100%; /* Botão largo para facilitar o toque (Tap Target) */
+        max-width: 280px;
+    }
+
+
+    /* --- PORTFÓLIO -------------------------------*/
+    .section-title {
+        font-size: 1.5rem;
+        margin-top: 60px;
+    }
+
+    .filters {
+        gap: 15px;
+        margin-bottom: 40px;
+    }
+
+    .filter-btn {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 coluna: foco total na imagem */
+        gap: 25px;
+    }
+
+    .project-card {
+        aspect-ratio: 4 / 3; /* Proporção um pouco mais horizontal para mobile */
+    }
+
+    /* No mobile, o overlay pode ficar parcialmente visível 
+       já que não existe o 'hover' do mouse */
+    .overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(18, 18, 18, 0.8) 0%, transparent 60%);
+        padding: 20px;
+    }
+
+    .overlay h3, .overlay p {
+        transform: translateY(0); /* Remove o deslocamento para ser legível direto */
+    }
+
+    .overlay button {
+        padding: 8px 15px;
+        font-size: 0.65rem;
+    }
+
+
+
+    /* --- PROCESSOS -------------------------------*/
+    .timeline {
+        flex-direction: column; /* Alinha os passos um abaixo do outro */
+        align-items: center;
+        gap: 60px;
+        margin-top: 50px;
+    }
+
+    /* Ajustamos a linha para ficar vertical */
+    .timeline::before {
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 100%; /* Agora ela cresce para baixo */
+        transform: scaleY(var(--linha-progresso, 0)); /* Muda de scaleX para scaleY */
+        transform-origin: top;
+        background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+    }
+
+    .step {
+        width: 100%;
+        max-width: 400px;
+        padding: 0;
+    }
+
+    /* Movemos o ponto de pulsação para trás do número no mobile */
+    .step::after {
+        left: 50%;
+        top: 45px;
+    }
+
+    .step span {
+        width: 70px; /* Reduzimos levemente o tamanho no mobile */
+        height: 70px;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .step h4 {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    #processo {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    
+
+
+    /* --- DEPOIMENTOS -------------------------------*/
+
+    #depoimentos {
+        padding-bottom: 50px;
+    }
+
+    .carousel-container {
+        height: 450px; /* Aumentado para textos maiores no mobile */
+        margin-top: 40px;
+        margin: 0;
+    }
+
+    .testimonial-card {
+        width: 85%; /* Card mais estreito para sobrar respiro nas laterais */
+        max-width: 300px;
+        padding: 30px 20px;
+    }
+
+    /* Reduzimos o deslocamento (translateX) para 35% e a profundidade (translateZ) */
+    /* Isso evita que o card 'saia' da tela */
+    .testimonial-card.prev {
+        opacity: 0.3;
+        transform: translateX(-40%) translateZ(-150px) rotateY(20deg);
+    }
+
+    .testimonial-card.next {
+        opacity: 0.3;
+        transform: translateX(40%) translateZ(-150px) rotateY(-20deg);
+    }
+
+    .testimonial-card.active {
+        opacity: 1;
+        transform: translateZ(0) scale(1.05); /* Leve destaque no centro */
+        z-index: 10;
+    }
+
+    /* Navegação mais compacta */
+    .carousel-nav {
+        margin-top: 0px;
+        padding: 0;
+    }  
+
+    .testimonial-card {
+        width: 80%;
+        padding: 25px 15px;
+    }
+    
+    /* Em telas muito pequenas, quase sobrepomos os cards de trás */
+    .testimonial-card.prev {
+        transform: translateX(-30%) translateZ(-200px) rotateY(25deg);
+    }
+
+    .testimonial-card.next {
+        transform: translateX(30%) translateZ(-200px) rotateY(-25deg);
+    }
+
+
+
+    /* --- CTA -------------------------------*/
+    .cta-content span {
+        font-size: 0.8rem;
+        letter-spacing: 3px;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    /* Empilhando os botões para facilitar o clique no polegar */
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 20px; /* Botão mais alto para melhor 'tap target' */
+        text-align: center;
+    }
+
+
+    /* --- CONTATO -------------------------------*/
+    #contato {
+        padding: 60px 15px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact-info p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .social-links {
+        flex-direction: column;
+
+    }
+
+    /* Melhorando os campos do formulário para o toque */
+    .input-group input, 
+    .input-group select, 
+    .input-group textarea {
+        padding: 18px; /* Aumenta a área de clique */
+        font-size: 1rem; /* Evita o zoom automático do iOS ao focar no input */
+    }
+
+    .contact-form button {
+        margin: auto;
+    }
+
+
+    /* --- FOOTER ----------------------------------*/
+    footer {
+        padding: 40px 0;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .footer-links a {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+    
+    .credits p {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+/* --- Ajuste para celulares muito pequenos (iPhone SE / etc) ------------------------------ */
+@media screen and (max-width: 380px) {
+    /* --- HERO -------------------------------------*/
+    .hero-content h1 {
+        font-size: 1.7rem;
+    }
+
+    /* --- CTA -------------------------------------*/
+    .cta-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- Animação menu --------------------------*/
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

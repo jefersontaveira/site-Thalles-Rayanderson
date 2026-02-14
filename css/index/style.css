@@ -102,15 +102,22 @@ nav {
 
 
 /*-------HERO SECTION---------------------------------------------------------------------------------------------------*/
+
+/* Container da máscara - Essencial para o efeito GSAP */
+.reveal-text {
+    overflow: hidden;
+    /* Removemos o vertical-align e usamos margin para espaçamento */
+    margin-bottom: 10px; 
+}
+
 #hero {
     height: 100vh;
-    /* Imagem de um interior moderno e luxuoso */
     background: 
         linear-gradient(to bottom, rgba(18, 18, 18, 0.3) 0%, rgba(18, 18, 18, 1) 100%),
         url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* Efeito de profundidade ao rolar */
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +127,18 @@ nav {
 
 .hero-content {
     max-width: 900px;
-    animation: fadeInHero 1.5s ease-out;
+    /* REMOVIDO: animation: fadeInHero */
+}
+
+/* Ajuste do Span (Arquitetura Exclusiva) */
+.hero-content span {
+    display: block; 
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--primary);
+    /* O GSAP vai animar esse elemento de baixo para cima dentro da reveal-text */
 }
 
 .hero-content h1 {
@@ -129,27 +147,18 @@ nav {
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 3px;
-    margin-bottom: 25px;
     color: var(--text-light);
-}
-
-.hero-content h1 span {
-    display: block;
-    font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: var(--primary);
-    margin-bottom: 15px;
+    display: block; /* Importante para o GSAP */
 }
 
 .hero-content p {
     font-size: 1.1rem;
     color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto 40px;
+    margin: 20px auto 40px; /* Ajustado para espaçar melhor */
     font-weight: 300;
     letter-spacing: 1px;
+    display: block; /* Importante para o GSAP */
 }
 
 /* Botão de Chamada (CTA) */
@@ -164,14 +173,14 @@ nav {
     letter-spacing: 3px;
     transition: var(--transition);
     position: relative;
-    overflow: hidden;
+    visibility: visible;
+
 }
 
 .cta-scroll:hover {
     background-color: var(--primary);
     color: var(--bg-dark);
 }
-
 
 
 
@@ -234,7 +243,7 @@ nav {
     text-transform: uppercase;
     margin-top: 120px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: left;
     color: var(--text-light);
 }
 
@@ -244,6 +253,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    perspective: 1200px;
 }
 
 .project-card {
@@ -251,6 +261,8 @@ nav {
     overflow: hidden;
     aspect-ratio: 5 / 4; /* Mantém uma proporção vertical elegante */
     background-color: var(--bg-accent);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
 
 .project-card img {
@@ -258,7 +270,8 @@ nav {
     height: 100%;
     object-fit: cover;
     filter: grayscale(20%); /* Toque artístico */
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: scale(1.3);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) filter 0.5s ease;
 }
 
 .overlay {
@@ -325,6 +338,15 @@ nav {
     border-color: white;
 }
 
+#btn_form{
+    background-color: var(--bg-dark);
+}
+
+#btn_form:hover{
+    background-color: var(--primary);
+    color: var(--text-light);
+}
+
 /*Botão ver mais projetos*/
 #loadMoreBtn{
     background-color: var(--bg-dark);
@@ -379,12 +401,15 @@ nav {
 .timeline::before {
     content: '';
     position: absolute;
-    top: 45px; /* Alinhado ao centro dos números */
+    top: 45px; 
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 4px;
     background: linear-gradient(to right, transparent, var(--primary), transparent);
     opacity: 0.3;
+    transform: scaleX(var(--linha-progresso, 0)); 
+    transform-origin: left; 
+    transition: none !important;
 }
 
 .step {
@@ -394,6 +419,8 @@ nav {
     z-index: 1;
     padding: 0 20px;
     transition: var(--transition);
+    opacity: 0;
+    transform: translateY(30px);
 }
 
 /* O Número (Destaque Tecnológico) */
@@ -487,7 +514,8 @@ nav {
     padding: 40px;
     border: 1px solid rgba(197, 160, 89, 0.2);
     text-align: center;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    will-change: transform, opacity;
     opacity: 0;
     pointer-events: none;
     user-select: none;
