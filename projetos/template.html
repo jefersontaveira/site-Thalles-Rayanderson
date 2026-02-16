@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Nome da Casa | Thalles Rayanderson</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/index/style.css">
+    
+    <style>
+        /* A MÁGICA: Mude apenas esta cor em cada página de projeto */
+        :root {
+            --accent-color: gold; /* Cor baseada na paleta da casa específica */
+        }
+        
+        .project-header {
+            padding: 30px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(15px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-page {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .close-page:hover {
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        .project-hero {
+            height: 80vh;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.2), rgba(18,18,18,1)), 
+                        url('../img/foto-projeto-principal.jpg') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .project-hero h1{
+            font-size: 4rem;
+        }
+
+        .project-gallery {
+            padding: 80px 0;
+            background: #121212;
+        }
+
+        /* Estilo para o carrossel de 6 imagens */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.5s;
+        }
+
+        .gallery-item img:hover {
+            border-color: var(--accent-color);
+        }
+
+        .project-details {
+            padding: 100px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .info-box {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 30px;
+        }
+
+        .info-box h3 { color: var(--accent-color); font-family: 'Cinzel', serif; margin-bottom: 10px;}
+
+        /* Tablet (Até 992px) */
+        @media screen and (max-width: 992px) {
+            .project-hero {
+                height: 60vh;
+            }
+
+            .project-hero h1 {
+                font-size: 3rem; /* Ajustado para não quebrar em telas médias */
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+                gap: 15px;
+            }
+
+            .gallery-item img {
+                height: 500px;
+            }
+
+            .project-details {
+                gap: 40px;
+                padding: 60px 20px; /* Adicionado padding lateral */
+            }
+
+            .cta-content h2 {
+                font-size: 3rem; 
+            }
+        }
+
+/* Celulares (Até 768px) */
+@media screen and (max-width: 768px) {
+    .project-header {
+        padding: 15px 0;
+    }
+
+    .project-hero {
+        height: 80vh; /* Aumentado para manter o impacto visual no mobile */
+    }
+
+    .project-hero h1 {
+        font-size: 2rem; /* Tamanho equilibrado para mobile */
+        padding: 0 10px;
+    }
+
+    .project-hero span {
+        font-size: 0.75rem;
+        letter-spacing: 3px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 coluna: fotos grandes no celular */
+        gap: 10px;
+    }
+
+    .gallery-item img {
+        height: 400px; /* Mantém a imponência das fotos */
+    }
+
+    .project-details {
+        grid-template-columns: 1fr; 
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    .info-box {
+        border-left: none; 
+        border-top: 1px solid var(--accent-color); 
+        padding: 20px 0 0 0;
+    }
+
+    .specs {
+        display: grid;
+        grid-template-columns: 1fr; /* Mantém duas colunas para specs não ficarem longas */
+        margin-top: 5px;
+    }
+}
+
+/* Celulares Pequenos (Até 480px) */
+@media screen and (max-width: 480px) {
+    .project-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .specs {
+        grid-template-columns: 1fr; /* Em telas muito pequenas, volta para 1 coluna */
+    }
+
+    .cta-scroll {
+        width: 100%; /* Botão ocupa a largura toda no celular pequeno */
+        text-align: center;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+}
+    </style>
+</head>
+<body class="dark-theme">
+
+    <header class="project-header">
+        <div class="container header-content">
+            <div class="logo">TH<span>Δ</span>LLES RAYANDER</div>
+            <a href="../index.html" class="close-page"><i class="fas fa-times"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-hero" style="background-image: linear-gradient(to bottom, rgba(18,18,18,0.4), rgba(18,18,18,1)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop');">
+            <div class="container">
+                <span class="reveal-text" style="color: var(--accent-color); letter-spacing: 5px; display: block; margin-bottom: 10px;">PROJETO RESIDENCIAL</span>
+                <h1 class="reveal-text" style="font-family: 'Cinzel', serif; text-transform: uppercase;">CASA LUXOR</h1>
+            </div>
+        </section>
+
+        <section class="project-gallery container">
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://picsum.photos/800/600?random=1"></div>
+                <div class="gallery-item"><img src="https://picsum.photos/800/600?random=2"></div>
+                <div class="gallery-item"><img src="https://picsum.photos/800/600?random=3"></div>
+    
+            </div>
+        </section>
+
+        <section class="project-details container">
+            <div class="description">
+                <h2 style="font-family: 'Cinzel', serif; margin-bottom: 20px;">Sobre o Projeto</h2>
+                <p style="color: #ccc; line-height: 1.8;">O projeto Luxor foi concebido para integrar a natureza externa com o luxo minimalista interno. Utilizando materiais nobres como o mármore carrara e madeira de carvalho, a estrutura se destaca pela sua imponente fachada de vidro.</p>
+            </div>
+            <div class="specs">
+                <div class="info-box">
+                    <h3>Área</h3>
+                    <p>850m²</p>
+                </div>
+                <br>
+                <div class="info-box">
+                    <h3>Localização</h3>
+                    <p>Fortaleza, CE</p>
+                </div>
+                <br>
+                <div class="info-box">
+                    <h3>Ano</h3>
+                    <p>2025</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" style="background-attachment: scroll;">
+            <div class="cta-overlay"></div>
+            <div class="container cta-content">
+                <h2>Interessado em algo similar?</h2>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/5585981311975" class="cta-scroll" style="background-color: var(--accent-color);">Fale com o Thalles Rayander</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 50px 0; border-top: 1px solid #333;">
+        <a style=" color: white; " href="https://jefersontaveira.github.io/Site-Nexus/">&copy; 2026 Reservado a Nexus</a>
+    </footer>
+
+</body>
+</html>
