@@ -79,6 +79,7 @@ nav {
     font-size: 0.9rem;
     letter-spacing: 1px;
     transition: var(--transition);
+
 }
 
 .nav-links a:hover { color: var(--primary); }
@@ -319,8 +320,9 @@ nav {
 }
 
 /* Botão de Ver Detalhes dentro do Card */
-.overlay button {
+.overlay a {
     background: transparent;
+    text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     padding: 10px 20px;
@@ -332,7 +334,7 @@ nav {
     transition: var(--transition);
 }
 
-.overlay button:hover {
+.overlay a:hover {
     background: white;
     color: black;
     border-color: white;
