@@ -160,3 +160,59 @@ function handleGesture() {
 
 // Inicializa
 updateCarousel();
+
+
+
+// Configurações para envio do formulário.
+const form = document.querySelector('form');
+const btnForm = document.getElementById('btn_form');
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Impede o recarregamento da página
+    
+    // Altera o estado do botão para feedback visual
+    const originalText = btnForm.innerText;
+    btnForm.innerText = "ENVIANDO...";
+    btnForm.style.opacity = "0.7";
+    btnForm.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Sucesso no envio
+            btnForm.innerText = "MENSAGEM ENVIADA!";
+            btnForm.style.backgroundColor = "#28a745"; // Cor verde para sucesso
+            form.reset(); // Limpa os campos
+            
+            setTimeout(() => {
+                btnForm.innerText = originalText;
+                btnForm.style.backgroundColor = ""; // Volta para a cor original (var--primary)
+                btnForm.style.opacity = "1";
+                btnForm.disabled = false;
+            }, 5000);
+        } else {
+            // Erro retornado pelo servidor
+            throw new Error();
+        }
+    } catch (error) {
+        // Erro de rede ou erro inesperado
+        btnForm.innerText = "ERRO AO ENVIAR";
+        btnForm.style.backgroundColor = "#dc3545"; // Cor vermelha para erro
+        
+        setTimeout(() => {
+            btnForm.innerText = originalText;
+            btnForm.style.backgroundColor = "";
+            btnForm.style.opacity = "1";
+            btnForm.disabled = false;
+        }, 3000);
+    }
+});
